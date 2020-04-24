@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'maven'
+
+
+description = 'PlaySafePart 1'
+    group = 'playsafe'
+repositories {
+    jcenter()    
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+	compile 'javax.websocket:javax.websocket-api:1.1'
+}
