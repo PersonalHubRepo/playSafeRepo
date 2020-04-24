@@ -8,7 +8,7 @@ public class CtokEndPoint extends BaseEndpoint {
 		//Converts Celcius to Kelvin
 			try{
 				
-				return  ConversionService.Ctok(Double.valueOf(data).doubleValue());
+				return  ConversionService.getInstance().Ctok(Double.valueOf(data).doubleValue());
 				
 			}catch(Exception e){
 				

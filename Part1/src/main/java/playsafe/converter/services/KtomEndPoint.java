@@ -8,7 +8,7 @@ public class KtomEndPoint extends BaseEndpoint {
 		//Converts Kilometers to Miles
 			try{
 				
-				return "" + ConversionService.KtoM(Double.valueOf(data).doubleValue());
+				return "" + ConversionService.getInstance().KtoM(Double.valueOf(data).doubleValue());
 				
 			}catch(Exception e){
 				

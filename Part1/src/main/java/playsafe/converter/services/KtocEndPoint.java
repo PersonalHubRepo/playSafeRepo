@@ -8,7 +8,7 @@ public class KtocEndPoint extends BaseEndpoint {
 		//Converts Celcius to Kelvin
 			try{
 				
-				return "" + ConversionService.KtoC(Double.valueOf(data).doubleValue());
+				return "" + ConversionService.getInstance().KtoC(Double.valueOf(data).doubleValue());
 				
 			}catch(Exception e){
 				

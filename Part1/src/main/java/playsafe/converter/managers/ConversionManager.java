@@ -6,30 +6,31 @@
 package playsafe.converter.managers;
 
 import playsafe.converter.services.ConversionService;
-import playsafe.converter.services.CtokEndPoint;
-import playsafe.converter.services.KtocEndPoint;
-import playsafe.converter.services.KtomEndPoint;
-import playsafe.converter.services.MtokEndPoint;
-import javax.websocket.server.ServerEndpointConfig;
+import javax.xml.ws.Endpoint;
 
 /**
  *
  * @author mini-me
  */
 public class ConversionManager extends SimpleWebService {
-	ConversionService conversionService=null;
+	static ConversionService conversionService=null;
 
 	public static void main(String[] args) {
 		
 		//Initialize the ConversionService
 		conversionService = new ConversionService();
-		String address = "http://0.0.0.0:9008/conversions/";
-		Endpoint.publish(address, implementor);
+		String address = "http://0.0.0.0:9008/conversions/ctok";
+		Endpoint.publish(address, new playsafe.converter.services.CtokEndPoint());
 		
-		ServerEndpointConfig.Builder.create(CtokEndPoint.class, "/ctok").build();
-		ServerEndpointConfig.Builder.create(KtocEndPoint.class, "/ktoc").build();
-		ServerEndpointConfig.Builder.create(KtomEndPoint.class, "/ktom").build();
-		ServerEndpointConfig.Builder.create(MtokEndPoint.class, "/mtok").build();
+		address = "http://0.0.0.0:9008/conversions/ktoc";
+		Endpoint.publish(address, new playsafe.converter.services.KtocEndPoint());
+
+		address = "http://0.0.0.0:9008/conversions/ktom";
+		Endpoint.publish(address, new playsafe.converter.services.KtomEndPoint());
+
+		address = "http://0.0.0.0:9008/conversions/mtok";
+		Endpoint.publish(address, new playsafe.converter.services.MtokEndPoint());
+
 		
 	}
 	

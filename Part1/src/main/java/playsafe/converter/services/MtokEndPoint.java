@@ -8,7 +8,7 @@ public class MtokEndPoint extends BaseEndpoint {
 		//Converts Miles to Kilometers
 			try{
 				
-				return ConversionService.Mtok(Double.valueOf(data).doubleValue());
+				return ConversionService.getInstance().Mtok(Double.valueOf(data).doubleValue());
 				
 			}catch(Exception e){
 				
