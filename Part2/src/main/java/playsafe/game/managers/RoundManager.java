@@ -9,12 +9,56 @@ package playsafe.game.managers;
  *
  * @author mini-me
  */
+ 
+import playsafe.game.utils.FileUtils;
+ 
 public class RoundManager extends Thread {
+	private static String baseFilePath="./";
+	
+	private static Vector messages = new Vector();
 	
 	RoundManager {
-			//create/read players
-			//rest for x seconds
+			//create/read players from file
+			
+			Vector players = FileUtils.readFileIntoVector(baseFilePath+"players.data");
+			
+			if(players.size()>0){
+					echoText("Players loaded ( "+players.size()+" )  : ");
+					for(String playerName : players ){
+						echoText(""+playerName);
+					}
+					echoTextFlush();
+			}else{
+				echoText("No Players could be found");
+			}
+			
+			//rest for a second
+			ThreadUtils.sleep(1000);
 			//static to add
 			//cast new no
+	}
+	
+	public static void echoText(String text){
+	
+		synchronized(messages){
+			messages.add(text+"\r\n");
+		}
+			
+		if(messages.size()>10){ //flush buffer
+			echoFlushText();
+		}
+	
+	}
+	
+	public static echoFlushText(){
+			
+			synchronized(messages){
+				while(messages.size()>10){
+					System.out.println(messages.get(0));
+					message.removeElementAt(0);
+					ThreadUtils.sleep(100);
+				}
+			}
+			
 	}
 }

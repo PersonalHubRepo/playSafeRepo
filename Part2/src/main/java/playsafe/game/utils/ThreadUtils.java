@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package playsafe.game.managers;
+package playsafe.game.utils;
 
 /**
  *
  * @author mini-me
  */
-public class RouletteManager {
-
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args) {
-		// TODO code application logic here
+ 
+ public class ThreadUtils {
+ 
+	public static void sleep(float milliSeconds){
+		
+		try{Thread.getCurrentThread().sleep(100)}catch(Exception e){}
+		
 	}
-	
-}
+
+ }
