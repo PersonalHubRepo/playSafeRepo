@@ -13,11 +13,21 @@ package playsafe.game.managers;
 import playsafe.game.utils.FileUtils;
  
 public class RoundManager extends Thread {
+	
 	private static String baseFilePath="./";
 	
 	private static Vector messages = new Vector();
+	private static self;
 	
-	RoundManager {
+	public static void main(String args[]){
+		
+		if(self==null){
+			self = new RoundManager();
+			self.start();
+		}		
+	}
+	
+	public RoundManager {
 			//create/read players from file
 			
 			Vector players = FileUtils.readFileIntoVector(baseFilePath+"players.data");
@@ -31,11 +41,18 @@ public class RoundManager extends Thread {
 			}else{
 				echoText("No Players could be found");
 			}
+	
 			
+	}
+	
+	@Override
+	public void run(){
+		while(true){
 			//rest for a second
 			ThreadUtils.sleep(1000);
 			//static to add
 			//cast new no
+		}			
 	}
 	
 	public static void echoText(String text){
