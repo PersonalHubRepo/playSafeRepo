@@ -9,6 +9,12 @@ package playsafe.game.managers;
  *
  * @author mini-me
  */
-public class RoundManager {
+public class RoundManager extends Thread {
 	
+	RoundManager {
+			//create/read players
+			//rest for x seconds
+			//static to add
+			//cast new no
+	}
 }
