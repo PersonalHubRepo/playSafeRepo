@@ -16,30 +16,20 @@ public class ConversionService  {
 	final static private double KelvinMetric = 274.15;
 	final static private double MileMetric = 0.6213712;
 	final static private double KilometerMetric = 1.609344;
-	
-	private static ConversionService self;
-	
-	ConversionService() {
-		if(self==null) self = new ConversionService();
-	}
-	
-	public static ConversionService getInstance(){
-		return self;
-	}
-	
-	public double Ctok(double value){
+
+	public static double Ctok(double value){
 		return value + KelvinMetric;
 	}
 	
-	public double Ktoc(double value){
+	public static double Ktoc(double value){
 		return value + CelciusMetric;
 	}
 
-	public double Mtok(double value){
+	public static double Mtok(double value){
 		return value * KilometerMetric;
 	}
 
-	public double KtoM(double value){
+	public static double KtoM(double value){
 		return value * MileMetric;
 	}	
 }
